@@ -18,3 +18,16 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+
+func TestTitle(t *testing.T) {
+	dataset := map[string]string{
+		"once upon   a time":    "Once Upon A Time",
+		"Il était une fois":     "Il Était Une Fois",
+		"il a dit : viens là !": "Il A Dit : Viens Là !",
+	}
+	for phrase, want := range dataset {
+		if got := Title(phrase); got != want {
+			t.Errorf("got : %s, want : %s\n", got, want)
+		}
+	}
+}
