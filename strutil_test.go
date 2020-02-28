@@ -5,23 +5,15 @@ import (
 )
 
 func TestReverse(t *testing.T) {
-	dataset := []string{
-		"0123456789",
-		"Il était une fois",
-		"あいうえお",
-		"天地玄黃宇宙洪荒",
+	dataset := map[string]string{
+		"0123456789":        "9876543210",
+		"Il était une fois": "siof enu tiaté lI",
+		"あいうえお":             "おえういあ",
+		"天地玄黃宇宙洪荒":          "荒洪宙宇黃玄地天",
 	}
 
-	expected := []string{
-		"9876543210",
-		"siof enu tiaté lI",
-		"おえういあ",
-		"荒洪宙宇黃玄地天",
-	}
-
-	for i, word := range dataset {
-		got, want := Reverse(word), expected[i]
-		if got != want {
+	for word, want := range dataset {
+		if got := Reverse(word); got != want {
 			t.Errorf("got : %s, want : %s\n", got, want)
 		}
 	}
