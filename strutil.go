@@ -1,4 +1,4 @@
-// strutil is a collection of functions on strings
+// Package strutil is a collection of functions on strings
 package strutil
 
 import (
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// Reverse returns a reversed version of its argument
+// Reverse returns a reversed version of a string
 func Reverse(in string) string {
 	out := []rune(in)
 	for i, j := 0, len(out)-1; i < j; i, j = i+1, j-1 {
@@ -15,7 +15,7 @@ func Reverse(in string) string {
 	return string(out)
 }
 
-// Title returns a version of its argument where each word is capitalised
+// Title returns a version of a string where each word is capitalised
 func Title(in string) string {
 	re := regexp.MustCompile("[^\\p{Z}]+")
 	words := re.FindAllString(in, -1)
