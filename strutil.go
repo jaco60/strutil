@@ -4,7 +4,13 @@ package strutil
 import (
 	"regexp"
 	"strings"
+	"unicode/utf8"
 )
+
+// Length returns the number of codepoints in a string
+func Length(in string) int {
+	return utf8.RuneCountInString(in)
+}
 
 // Reverse returns a reversed version of a string
 func Reverse(in string) string {
