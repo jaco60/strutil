@@ -4,6 +4,20 @@ import (
 	"testing"
 )
 
+func TestLength(t *testing.T) {
+	dataset := map[string]int{
+		"":         0,
+		"bonjour":  7,
+		"œ":        1,
+		"Il était": 8,
+	}
+	for word, want := range dataset {
+		if got := Length(word); got != want {
+			t.Errorf("got : %d, want : %d\n", got, want)
+		}
+	}
+}
+
 func TestReverse(t *testing.T) {
 	dataset := map[string]string{
 		"0123456789":        "9876543210",
